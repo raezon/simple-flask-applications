@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    triggers {
+        githubPush()
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/raezon/simple-flask-applications.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                script {
+                    dockerImage = sudo.docker.build('simple-app', '.')
+                }
+            }
+        }
+        
+        stage('Run') {
+            steps {
+                script {
+                    sudo.dockerImage.run('-d -p 80:80')
+                }
+            }
+        }
+    }
+}

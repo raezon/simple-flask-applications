@@ -8,7 +8,7 @@ pipeline {
             {
                 script {
                         echo "INFO: Build Stage"
-                         sh 'docker build -t my-awesome-project .'
+                         sh 'sudo docker build -t my-awesome-project .'
                     }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             {
                 script {
                             echo "INFO: Deploy Stage"
-                            sh 'docker rm -f my-awesome-project || true'
+                            sh 'sudo docker rm -f my-awesome-project || true'
                             sh 'docker run --restart always -d -p 80:80 my-awesome-project'
                     }
             }

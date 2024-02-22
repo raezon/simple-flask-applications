@@ -7,7 +7,7 @@ Welcome to my awesome project! This project does amazing things and you're going
 
 ## Features
 
-- Feature 1
+- simple rest api
 - Feature 2
 - Feature 3
 

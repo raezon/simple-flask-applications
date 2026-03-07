@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Exposer le port sur lequel l'application va tourner
-EXPOSE 80
+EXPOSE 8080
 
 # Définir la commande pour démarrer l'application
 CMD ["python", "app.py"]
